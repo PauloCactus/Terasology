@@ -19,26 +19,26 @@ configure<SourceSetContainer> {
 }
 
 dependencies {
-    implementation("org.slf4j:slf4j-api:2.0.11")
-    implementation("net.sf.trove4j:trove4j:3.0.3")
+    implementation("org.slf4j:slf4j-api:_")
+    implementation("net.sf.trove4j:trove4j:_")
 
-    implementation("org.terasology:reflections:0.9.12-MB")
-    implementation("org.terasology.nui:nui-reflect:3.0.0")
-    implementation("org.terasology.gestalt:gestalt-module:7.2.0")
-    implementation("org.terasology.gestalt:gestalt-asset-core:7.2.0")
+    implementation("org.terasology:reflections:_")
+    implementation("org.terasology.nui:nui-reflect:_")
+    implementation("org.terasology.gestalt:gestalt-module:_")
+    implementation("org.terasology.gestalt:gestalt-asset-core:_")
 
-    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.11") {
+    testRuntimeOnly("org.slf4j:slf4j-simple:_") {
         because("log output during tests")
     }
-    testImplementation(platform("org.junit:junit-bom:5.10.1")) {
+    testImplementation(platform(Testing.junit.bom)) {
         // junit-bom will set version numbers for the other org.junit dependencies.
     }
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testImplementation("org.junit.jupiter:junit-jupiter-params")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testImplementation("org.mockito:mockito-inline:3.12.4")
+    testImplementation(Testing.junit.jupiter.api)
+    testImplementation(Testing.junit.jupiter.params)
+    testRuntimeOnly(Testing.junit.jupiter.engine)
+    testImplementation(Testing.mockito.inline)
 
-    testImplementation("org.mockito:mockito-junit-jupiter:3.12.4")
+    testImplementation(Testing.mockito.junitJupiter)
 }
 
 tasks.register<Test>("unitTest") {

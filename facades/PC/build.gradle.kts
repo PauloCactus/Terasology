@@ -60,34 +60,34 @@ group = "org.terasology.facades"
 dependencies {
     implementation(group = "net.java.dev.jna", name = "jna-platform", version = "5.6.0")
     implementation(group = "info.picocli", name = "picocli", version = "4.5.2")
-    annotationProcessor("info.picocli:picocli-codegen:4.5.2")
+    annotationProcessor("info.picocli:picocli-codegen:_")
 
     implementation(project(":engine"))
     implementation(project(":subsystems:DiscordRPC"))
-    implementation("io.projectreactor:reactor-core:3.4.7")
+    implementation("io.projectreactor:reactor-core:_")
 
     // TODO: Consider whether we can move the CR dependency back here from the engine, where it is referenced from the main menu
     implementation(group = "org.terasology.crashreporter", name = "cr-terasology", version = "5.0.0")
 
-    runtimeOnly("ch.qos.logback:logback-classic:1.4.14") {
+    runtimeOnly("ch.qos.logback:logback-classic:_") {
         because("to configure logging with logback.xml")
     }
-    runtimeOnly("org.codehaus.janino:janino:3.1.7") {
+    runtimeOnly("org.codehaus.janino:janino:_") {
         because("allows use of EvaluatorFilter in logback.xml")
     }
-    runtimeOnly("org.slf4j:jul-to-slf4j:2.0.11") {
+    runtimeOnly("org.slf4j:jul-to-slf4j:_") {
         because("redirects java.util.logging from miscellaneous dependencies through slf4j")
     }
 
-    testImplementation(platform("org.junit:junit-bom:5.10.1")) {
+    testImplementation(platform(Testing.junit.bom)) {
         // junit-bom will set version numbers for the other org.junit dependencies.
     }
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testImplementation("org.junit.jupiter:junit-jupiter-params")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation(Testing.junit.jupiter.api)
+    testImplementation(Testing.junit.jupiter.params)
+    testRuntimeOnly(Testing.junit.jupiter.engine)
 
-    testImplementation("com.google.truth:truth:1.1.2")
-    testImplementation("com.google.truth.extensions:truth-java8-extension:1.1.2")
+    testImplementation("com.google.truth:truth:_")
+    testImplementation("com.google.truth.extensions:truth-java8-extension:_")
 }
 
 tasks.named<JavaCompile>("compileJava") {

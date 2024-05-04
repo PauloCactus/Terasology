@@ -29,7 +29,7 @@ buildscript {
 
     dependencies {
         // Our locally included /build-logic
-        classpath("org.terasology.gradology:build-logic")
+        classpath("org.terasology.gradology:build-logic:_")
     }
 }
 
@@ -44,9 +44,9 @@ plugins {
     //apply plugin: "eclipse"
     id("idea")
     // For the "Build and run using: Intellij IDEA | Gradle" switch
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
+    id("org.jetbrains.gradle.plugin.idea-ext")
 
-    id("com.google.protobuf") version "0.9.4" apply false
+    id("com.google.protobuf") apply false
     id("terasology-repositories")
 }
 
@@ -80,7 +80,7 @@ val codeMetrics = configurations.create("codeMetrics")
 
 dependencies {
     // For the "natives" configuration make it depend on the native files from LWJGL
-    natives(platform("org.lwjgl:lwjgl-bom:$LwjglVersion"))
+    natives(platform("org.lwjgl:lwjgl-bom:_"))
     listOf("natives-linux", "natives-windows", "natives-macos", "natives-macos-arm64").forEach {
         natives("org.lwjgl:lwjgl::$it")
         natives("org.lwjgl:lwjgl-assimp::$it")
@@ -169,8 +169,8 @@ tasks.named("clean") {
 allprojects {
     configurations.all {
         resolutionStrategy.dependencySubstitution {
-            substitute(module("org.terasology.engine:engine")).using(project(":engine")).because("we have sources!")
-            substitute(module("org.terasology.engine:engine-tests")).using(project(":engine-tests"))
+            substitute(module("org.terasology.engine:engine:_")).using(project(":engine")).because("we have sources!")
+            substitute(module("org.terasology.engine:engine-tests:_")).using(project(":engine-tests"))
                 .because("we have sources!")
         }
     }

@@ -62,7 +62,7 @@ configurations.configureEach {
     resolutionStrategy {
         // always pick reflections fork
         dependencySubstitution {
-            substitute(module("org.reflections:reflections")).using(module("org.terasology:reflections:0.9.12-MB"))
+            substitute(module("org.reflections:reflections:_")).using(module("org.terasology:reflections:_"))
         }
     }
 }
@@ -70,95 +70,95 @@ configurations.configureEach {
 // Primary dependencies definition
 dependencies {
     // Storage and networking
-    api("com.google.guava:guava:31.0-jre")
-    api("com.google.code.gson:gson:2.8.6")
-    api("net.sf.trove4j:trove4j:3.0.3")
-    implementation("io.netty:netty-all:4.1.77.Final")
-    implementation("com.google.protobuf:protobuf-java:3.22.0")
-    implementation("org.lz4:lz4-java:1.8.0")
-    implementation("org.apache.httpcomponents:httpclient:4.5.13")
+    api("com.google.guava:guava:_")
+    api("com.google.code.gson:gson:_")
+    api("net.sf.trove4j:trove4j:_")
+    implementation("io.netty:netty-all:_")
+    implementation("com.google.protobuf:protobuf-java:_")
+    implementation("org.lz4:lz4-java:_")
+    implementation("org.apache.httpcomponents:httpclient:_")
     // Javax for protobuf due to @Generated - needed on Java 9 or newer Javas
     // TODO: Can likely replace with protobuf Gradle task and omit the generated source files instead
-    implementation("javax.annotation:javax.annotation-api:1.3.2")
+    implementation("javax.annotation:javax.annotation-api:_")
 
     //Utilities
-    api("org.codehaus.plexus:plexus-utils:3.0.16")
+    api("org.codehaus.plexus:plexus-utils:_")
 
     // Java magic
-    implementation("net.java.dev.jna:jna-platform:5.6.0")
-    implementation("org.terasology:reflections:0.9.12-MB")
-    implementation("com.esotericsoftware:reflectasm:1.11.9")
+    implementation("net.java.dev.jna:jna-platform:_")
+    implementation("org.terasology:reflections:_")
+    implementation("com.esotericsoftware:reflectasm:_")
 
     // Graphics, 3D, UI, etc
-    api(platform("org.lwjgl:lwjgl-bom:$LwjglVersion"))
-    api("org.lwjgl:lwjgl")
-    implementation("org.lwjgl:lwjgl-assimp")
-    api("org.lwjgl:lwjgl-glfw")
-    implementation("org.lwjgl:lwjgl-openal")
-    api("org.lwjgl:lwjgl-opengl")
-    implementation("org.lwjgl:lwjgl-stb")
+    api(platform("org.lwjgl:lwjgl-bom:_"))
+    api("org.lwjgl:lwjgl:_")
+    implementation("org.lwjgl:lwjgl-assimp:_")
+    api("org.lwjgl:lwjgl-glfw:_")
+    implementation("org.lwjgl:lwjgl-openal:_")
+    api("org.lwjgl:lwjgl-opengl:_")
+    implementation("org.lwjgl:lwjgl-stb:_")
 
-    implementation("io.micrometer:micrometer-core:1.9.12")
-    implementation("io.micrometer:micrometer-registry-jmx:1.9.12")
-    api("io.projectreactor:reactor-core:3.4.18")
-    api("io.projectreactor.addons:reactor-extra:3.4.8")
-    implementation("io.projectreactor.netty:reactor-netty-core:1.0.19")
+    implementation("io.micrometer:micrometer-core:_")
+    implementation("io.micrometer:micrometer-registry-jmx:_")
+    api("io.projectreactor:reactor-core:_")
+    api("io.projectreactor.addons:reactor-extra:_")
+    implementation("io.projectreactor.netty:reactor-netty-core:_")
 
-    api("org.joml:joml:1.10.0")
-    api("org.terasology.joml-ext:joml-geometry:0.1.0")
+    api("org.joml:joml:_")
+    api("org.terasology.joml-ext:joml-geometry:_")
 
-    implementation("org.abego.treelayout:org.abego.treelayout.core:1.0.3")
-    api("com.miglayout:miglayout-core:5.0")
-    implementation("de.matthiasmann.twl:PNGDecoder:1111")
+    implementation("org.abego.treelayout:org.abego.treelayout.core:_")
+    api("com.miglayout:miglayout-core:_")
+    implementation("de.matthiasmann.twl:PNGDecoder:_")
 
     // Logging
-    implementation("org.slf4j:slf4j-api:2.0.11") {
+    implementation("org.slf4j:slf4j-api:_") {
         because("a backend-independent Logger")
     }
-    implementation("ch.qos.logback:logback-classic:1.4.14") {
+    implementation("ch.qos.logback:logback-classic:_") {
         because("telemetry implementation uses logback to send to logstash " +
                 "and we bundle org.terasology.logback for the regex filter")
     }
 
     // audio
-    implementation("com.projectdarkstar.ext.jorbis:jorbis:0.0.17")
+    implementation("com.projectdarkstar.ext.jorbis:jorbis:_")
 
     // Small-time 3rd party libs we"ve stored in our Artifactory for access
     implementation("ec.util:MersenneTwister:20")
 
     // telemetry
-    implementation("com.snowplowanalytics:snowplow-java-tracker:0.12.1") {
+    implementation("com.snowplowanalytics:snowplow-java-tracker:_") {
         exclude group: "org.slf4j", module: "slf4j-simple"
     }
-    implementation("net.logstash.logback:logstash-logback-encoder:7.4")
+    implementation("net.logstash.logback:logstash-logback-encoder:_")
 
     // Our developed libs
-    api("org.terasology.gestalt:gestalt-asset-core:7.2.1-SNAPSHOT")
-    api("org.terasology.gestalt:gestalt-module:7.2.1-SNAPSHOT")
-    api("org.terasology.gestalt:gestalt-entity-system:7.2.1-SNAPSHOT")
-    api("org.terasology.gestalt:gestalt-util:7.2.1-SNAPSHOT")
+    api("org.terasology.gestalt:gestalt-asset-core:_")
+    api("org.terasology.gestalt:gestalt-module:_")
+    api("org.terasology.gestalt:gestalt-entity-system:_")
+    api("org.terasology.gestalt:gestalt-util:_")
 
-    api("org.terasology:TeraMath:1.5.0")
-    api("org.terasology:splash-screen:1.1.1")
-    api("org.terasology.jnlua:JNLua:0.1.0-SNAPSHOT")
-    api("org.terasology.jnbullet:JNBullet:1.0.4")
-    api("org.terasology.nui:nui:3.0.0")
-    api("org.terasology.nui:nui-reflect:3.0.0")
-    api("org.terasology.nui:nui-gestalt7:3.0.0")
+    api("org.terasology:TeraMath:_")
+    api("org.terasology:splash-screen:_")
+    api("org.terasology.jnlua:JNLua:_")
+    api("org.terasology.jnbullet:JNBullet:_")
+    api("org.terasology.nui:nui:_")
+    api("org.terasology.nui:nui-reflect:_")
+    api("org.terasology.nui:nui-gestalt7:_")
 
 
     // Wildcard dependency to catch any libs provided with the project (remote repo preferred instead)
     api fileTree(dir: "libs", include: "*.jar")
 
     // TODO: Consider moving this back to the PC Facade instead of having the engine rely on it?
-    implementation("org.terasology.crashreporter:cr-terasology:5.0.0")
+    implementation("org.terasology.crashreporter:cr-terasology:_")
 
     api(project(":subsystems:TypeHandlerLibrary"))
 }
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:3.22.0"
+        artifact = "com.google.protobuf:protoc:_"
     }
     plugins {
     }
@@ -197,9 +197,9 @@ tasks.register("jmh", JavaExec) {
 }
 
 dependencies {
-    jmhAnnotationProcessor("org.openjdk.jmh:jmh-generator-annprocess:1.27")
-    jmhImplementation("org.openjdk.jmh:jmh-core:1.27")
-    jmhImplementation("org.openjdk.jmh:jmh-generator-annprocess:1.27")
+    jmhAnnotationProcessor("org.openjdk.jmh:jmh-generator-annprocess:_")
+    jmhImplementation("org.openjdk.jmh:jmh-core:_")
+    jmhImplementation("org.openjdk.jmh:jmh-generator-annprocess:_")
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

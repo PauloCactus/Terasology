@@ -17,12 +17,12 @@ configure<SourceSetContainer> {
 
 dependencies {
     implementation(project(":engine"))
-    api("com.jagrosh:DiscordIPC:0.4")
+    api("com.jagrosh:DiscordIPC:_")
 
     constraints {
         // Upgrades for old transitive dependencies of DiscordIPC that Checkmarx doesn't like
-        implementation("com.kohlschutter.junixsocket:junixsocket-common:2.4.0")
-        implementation("com.kohlschutter.junixsocket:junixsocket-native-common:2.4.0")
-        implementation("org.json:json:20220320")
+        implementation("com.kohlschutter.junixsocket:junixsocket-common:_")
+        implementation("com.kohlschutter.junixsocket:junixsocket-native-common:_")
+        implementation("org.json:json:_")
     }
 }

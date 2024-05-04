@@ -51,33 +51,33 @@ dependencies {
     implementation(project(":engine"))
 
     // Dependency not provided for modules, but required for module-tests
-    implementation("com.google.code.gson:gson:2.8.6")
-    implementation("org.codehaus.plexus:plexus-utils:3.0.16")
-    implementation("com.google.protobuf:protobuf-java:3.16.1")
-    implementation("org.terasology:reflections:0.9.12-MB")
+    implementation("com.google.code.gson:gson:_")
+    implementation("org.codehaus.plexus:plexus-utils:_")
+    implementation("com.google.protobuf:protobuf-java:_")
+    implementation("org.terasology:reflections:_")
 
-    implementation("org.terasology.joml-ext:joml-test:0.1.0")
+    implementation("org.terasology.joml-ext:joml-test:_")
 
-    testImplementation("ch.qos.logback:logback-classic:1.4.14") {
+    testImplementation("ch.qos.logback:logback-classic:_") {
         because("implementation: a test directly uses logback.classic classes")
     }
 
 
     // Test lib dependencies
-    implementation(platform("org.junit:junit-bom:5.10.1")) {
+    implementation(platform(Testing.junit.bom)) {
         // junit-bom will set version numbers for the other org.junit dependencies.
     }
-    api("org.junit.jupiter:junit-jupiter-api") {
+    api(Testing.junit.jupiter.api) {
         because("we export jupiter Extensions for module tests")
     }
-    api("com.google.truth:truth:1.1.3") {
+    api("com.google.truth:truth:_") {
         because("we provide some helper classes")
     }
-    implementation("org.mockito:mockito-core:5.6.0") {
+    implementation(Testing.mockito.core) {
         because("classes like HeadlessEnvironment use mocks")
     }
     constraints {
-        implementation("net.bytebuddy:bytebuddy:1.14.8") {
+        implementation("net.bytebuddy:bytebuddy:_") {
             because("we need a newer bytebuddy version for Java 17")
         }
     }
