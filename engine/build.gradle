@@ -62,7 +62,7 @@ configurations.configureEach {
     resolutionStrategy {
         // always pick reflections fork
         dependencySubstitution {
-            substitute(module("org.reflections:reflections:_")).using(module("org.terasology:reflections:_"))
+            substitute(module("org.reflections:reflections")).using(module("org.terasology:reflections:0.9.12-MB"))
         }
     }
 }
@@ -86,7 +86,7 @@ dependencies {
 
     // Java magic
     implementation("net.java.dev.jna:jna-platform:_")
-    implementation("org.terasology:reflections:_")
+    implementation("org.terasology:reflections:0.9.12-MB")
     implementation("com.esotericsoftware:reflectasm:_")
 
     // Graphics, 3D, UI, etc
@@ -134,7 +134,7 @@ dependencies {
 
     // Our developed libs
     api("org.terasology.gestalt:gestalt-asset-core:_")
-    api("org.terasology.gestalt:gestalt-module:_")
+    api("org.terasology.gestalt:gestalt-module:7.2.1-SNAPSHOT")
     api("org.terasology.gestalt:gestalt-entity-system:_")
     api("org.terasology.gestalt:gestalt-util:_")
 

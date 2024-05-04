@@ -22,9 +22,9 @@ dependencies {
     implementation("org.slf4j:slf4j-api:_")
     implementation("net.sf.trove4j:trove4j:_")
 
-    implementation("org.terasology:reflections:_")
+    implementation("org.terasology:reflections:0.9.12-MB")
     implementation("org.terasology.nui:nui-reflect:_")
-    implementation("org.terasology.gestalt:gestalt-module:_")
+    implementation("org.terasology.gestalt:gestalt-module:7.2.1-SNAPSHOT")
     implementation("org.terasology.gestalt:gestalt-asset-core:_")
 
     testRuntimeOnly("org.slf4j:slf4j-simple:_") {

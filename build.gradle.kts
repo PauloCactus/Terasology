@@ -29,7 +29,7 @@ buildscript {
 
     dependencies {
         // Our locally included /build-logic
-        classpath("org.terasology.gradology:build-logic:_")
+        classpath("org.terasology.gradology:build-logic")
     }
 }
 
@@ -169,8 +169,8 @@ tasks.named("clean") {
 allprojects {
     configurations.all {
         resolutionStrategy.dependencySubstitution {
-            substitute(module("org.terasology.engine:engine:_")).using(project(":engine")).because("we have sources!")
-            substitute(module("org.terasology.engine:engine-tests:_")).using(project(":engine-tests"))
+            substitute(module("org.terasology.engine:engine")).using(project(":engine")).because("we have sources!")
+            substitute(module("org.terasology.engine:engine-tests")).using(project(":engine-tests"))
                 .because("we have sources!")
         }
     }

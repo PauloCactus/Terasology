@@ -30,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.terasology:reflections:_") {
+    implementation("org.terasology:reflections:0.9.12-MB") {
         because("reflections-manifest.gradle.kts")
     }
     // Additional corrections for old reflections dependencies:
@@ -41,14 +41,14 @@ dependencies {
     }
 
     // graph analysis
-    implementation("org.jgrapht:jgrapht-core:_")
+    implementation("org.jgrapht:jgrapht-core:1.5.0")
 
     // for inspecting modules
-    implementation("org.terasology.gestalt:gestalt-module:_")
+    implementation("org.terasology.gestalt:gestalt-module:7.2.1-SNAPSHOT")
 
     // plugins we configure
-    implementation("com.github.spotbugs.snom:spotbugs-gradle-plugin:_")
-    implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:_")
+    implementation("com.github.spotbugs.snom:spotbugs-gradle-plugin:5.2.3")
+    implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:5.0.0.4638")
 
     api(kotlin("test"))
 }

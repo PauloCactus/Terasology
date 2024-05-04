@@ -54,7 +54,7 @@ dependencies {
     implementation("com.google.code.gson:gson:_")
     implementation("org.codehaus.plexus:plexus-utils:_")
     implementation("com.google.protobuf:protobuf-java:_")
-    implementation("org.terasology:reflections:_")
+    implementation("org.terasology:reflections:0.9.12-MB")
 
     implementation("org.terasology.joml-ext:joml-test:_")
 
@@ -64,16 +64,16 @@ dependencies {
 
 
     // Test lib dependencies
-    implementation(platform(Testing.junit.bom)) {
+    implementation(platform("org.junit.bom:_")) {
         // junit-bom will set version numbers for the other org.junit dependencies.
     }
-    api(Testing.junit.jupiter.api) {
+    api("org.junit.jupiter:junit-jupiter-api") {
         because("we export jupiter Extensions for module tests")
     }
     api("com.google.truth:truth:_") {
         because("we provide some helper classes")
     }
-    implementation(Testing.mockito.core) {
+    implementation("org.mockito:mockito.core:_") {
         because("classes like HeadlessEnvironment use mocks")
     }
     constraints {
